@@ -3,6 +3,8 @@ logs
 *.log
 npm-debug.log*
 
+/out
+
 # Runtime data
 pids
 *.pid
@@ -36,3 +38,4 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .next
+.DS_Store
