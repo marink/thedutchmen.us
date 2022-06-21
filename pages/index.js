@@ -12,6 +12,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <p>
+          <img src="logo-gray.png" height="300"></img>
+        </p>
         <h1 className={styles.title}>
           Welcome to <a style={{color: "orange"}} href="https://thedutchmen.us">The Dutchmen Website!</a>
         </h1>
