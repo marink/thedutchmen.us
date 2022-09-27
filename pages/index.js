@@ -136,16 +136,16 @@ export default function Home() {
 
             {/** Navbar (sit on top) */}
             <header className="w3-top">
-                <nav className="w3-bar" id="myNavbar">
+                <nav className="w3-bar" id="myNavbar" style={{minWidth: 800}}>
                     <a className="w3-bar-item link-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="#" onClick={toggleFunction} title="Toggle Navigation Menu">
                         <i className="fa fa-bars"></i>
                     </a>
                     <a href="#home" className="w3-bar-item link-button">HOME</a>
                     <a href="#about" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-user"></i> ABOUT</a>
                     <a href="#products" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-shopping-cart"></i> PRODUCTS</a>
-                    <a href="#" className="w3-bar-item link-button w3-hide-small w3-right w3-hover-red"></a>
                     <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-globe"></i> MISSION STATEMENT</a>
                     <a href="#contact" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-envelope"></i> CONTACT</a>
+                    <a href="#" className="w3-bar-item link-button w3-hide-small w3-right w3-hover-red"></a>
                 </nav>
 
                 {/* Navbar on small screens */}
