@@ -1,16 +1,93 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    line-height: 1.5
+}
+
+html {
+    overflow-x: hidden
+}
+
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+    width: 64%;
+    margin: auto;
+}
+
+#__next {
+    width: 100%;
+    height: 100%;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.centered {
+    width: 100%;
+    text-align: center
+}
+
+.hr-divider {
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+
+
+.contact-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.contact-btn::before {
+    position: absolute;
+    color: #0a66c2;
+    top: 8px;
+    left: 16px;
+    text-align: left;
+    display: inline;
+    content: "\f08c";
+    font: normal normal normal 24px/1 FontAwesome;
+    bottom: 0;
+    z-index: 1;
+}
+
+.contact-btn:hover {
+    color: #000 !important;
+    background-color: #ccc !important
+}
+
+.footer-links-section {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important
+}
+
+.font-awesome-link {
+    color: inherit
+}
+
+.font-awesome-link::before {
+    padding-left: 32px;
 }
