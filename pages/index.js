@@ -146,14 +146,15 @@ export default function Home() {
 
             {/** Navbar (sit on top) */}
             <header className="w3-top">
-                <nav className="w3-bar" id="myNavbar" style={{minWidth: 800}}>
+                <nav className="w3-bar" id="myNavbar">
                     <a className="w3-bar-item link-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="#" onClick={toggleFunction} title="Toggle Navigation Menu">
                         <i className="fa fa-bars"></i>
                     </a>
                     <a href="#home" className="w3-bar-item link-button">HOME</a>
                     <a href="#about" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-user"></i> ABOUT</a>
                     <a href="#products" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-shopping-cart"></i> PRODUCTS</a>
-                    <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-globe"></i> MISSION STATEMENT</a>
+                    <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small w3-hide-large"><i className="fa fa-globe"></i> MISSION</a>
+                    <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small w3-hide-medium"><i className="fa fa-globe"></i> MISSION STATEMENT</a>
                     <a href="#contact" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-envelope"></i> CONTACT</a>
                     <a href="#" className="w3-bar-item link-button w3-hide-small w3-right w3-hover-red"></a>
                 </nav>
@@ -181,7 +182,9 @@ export default function Home() {
                 {/* Container (About Section) */}
                 <section className="w3-content w3-container w3-padding-64" id="about">
                     <h3 className="w3-center">ABOUT US</h3>
-                    <h2 className="w3-center"> <em>Welcome to <a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em></h2>
+                    <h2 className="w3-center" style={{whiteSpace: "nowrap"}}>
+                         <em>Welcome to <wbr/><a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em>
+                    </h2>
                     <div className="w3-row">
                         <div className="w3-col m5 w3-center w3-padding-large">
                             <img src="images/about-us.jpg" 
@@ -397,12 +400,15 @@ export default function Home() {
                         </a>
                         */}
                         <a className="font-awesome-link" href="https://www.instagram.com/thedutchmen.us/">
-                            <i className="fa fa-instagram w3-hover-opacity"></i>
-                        </a>
-                        <i className="fa fa-snapchat w3-hover-opacity"></i>
-                        <i className="fa fa-pinterest-p w3-hover-opacity"></i>
-                        <i className="fa fa-twitter w3-hover-opacity"></i>
-                        <i className="fa fa-linkedin w3-hover-opacity"></i>
+                            <i className="fa fa-instagram w3-hover-opacity"></i> </a>
+                        <a className="font-awesome-link" href="#">
+                            <i className="fa fa-snapchat w3-hover-opacity"> </i> </a>
+                        <a className="font-awesome-link" href="#">
+                            <i className="fa fa-pinterest-p w3-hover-opacity"></i> </a>
+                        <a className="font-awesome-link" href="#">
+                            <i className="fa fa-twitter w3-hover-opacity"></i> </a>
+                        <a className="font-awesome-link" href="https://www.linkedin.com/in/wendi-cano-valdez-b2b6b1240/">
+                            <i className="fa fa-linkedin w3-hover-opacity"></i> </a>
                     </div>
 
                     <p>Copyright (c) 2021-2022 by <a href="https://thedutchment.us" title="TheDutchmen LLC." className="w3-hover-text-green">TheDutchmen LLC.</a></p>
