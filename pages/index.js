@@ -1,21 +1,13 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Dialog from '@mui/material/Dialog';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
 
 
 function ConfirmationDialogRaw(props) {
@@ -78,14 +70,14 @@ ConfirmationDialogRaw.propTypes = {
 
 export default function Home() {
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     const [value, setValue] = React.useState('Dione');
 
     const {inputs, handleInputChange, handleSubmit} = useSignUpForm(signup);
 
     
     function signup() { 
-        window.open(`mailto:wendiacanovaldez@gmail.com?subject=%20&body=${inputs.message}%20Email:%20${inputs.email}`)
+        window.open(`mailto:wendiacanovaldez@gmail.com?subject=TheDutchment.us%20Message&body=${inputs.message},%20Email:%20${inputs.email}`)
       }
 
     const handleClose = (newValue) => {
@@ -98,33 +90,18 @@ export default function Home() {
             location.href = "https://masscannabiscontrol.com/parents/"
         }
     };
-
         
     const [scrolling, setScrolling] = React.useState(false);
     const [scrollTop, setScrollTop] = React.useState(0);
 
-    /*
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
-  
-    // Change style of navbar on scroll
-    window.onscroll = function() {myFunction()};
-    function myFunction() {
-
-    }
-  
-  */
-    var navbar = document.getElementById("myNavbar");
-    if (navbar) {
-        if (scrollTop > 100) {
-            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " bg-white";
-        } else {
-            navbar.className = navbar.className.replace(" w3-card w3-animate-top bg-white", "");
+    if (open == false) {
+        var navbar = document.getElementById("myNavbar");
+        if (navbar) {
+            if (scrollTop > 100) {
+                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " bg-white";
+            } else {
+                navbar.className = navbar.className.replace(" w3-card w3-animate-top bg-white", "");
+            }
         }
     }
 
@@ -152,7 +129,7 @@ export default function Home() {
         <React.Fragment>
             <Head>
                 <title>TheDutchmen LLC. - Premium Cannabis Cultivator</title>
-                <meta charset="UTF-8" />
+                <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -168,6 +145,7 @@ export default function Home() {
                     <a href="#products" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-shopping-cart"></i> PRODUCTS</a>
                     <a href="#" className="w3-bar-item link-button w3-hide-small w3-right w3-hover-red"></a>
                     <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-globe"></i> MISSION STATEMENT</a>
+                    <a href="#contact" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-envelope"></i> CONTACT</a>
                 </nav>
 
                 {/* Navbar on small screens */}
@@ -175,6 +153,7 @@ export default function Home() {
                     <a href="#about" className="w3-bar-item link-button" onClick={toggleFunction}>ABOUT</a>
                     <a href="#products" className="w3-bar-item link-button" onClick={toggleFunction}>PRODUCTS</a>
                     <a href="#mission-statement" className="w3-bar-item link-button" onClick={toggleFunction}>MISSION STATEMENT</a>
+                    <a href="#contact" className="w3-bar-item link-button" onClick={toggleFunction}>CONTACT</a>
                 </nav>
             </header>
 
@@ -194,13 +173,13 @@ export default function Home() {
                     <h3 className="w3-center">ABOUT US</h3>
                     <h2 className="w3-center"> <em>Welcome to <a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em></h2>
                     <div className="w3-row">
-                        <div className="w3-col m4 w3-center w3-padding-large">
+                        <div className="w3-col m5 w3-center w3-padding-large">
                             <img src="images/about-us.jpg" 
                                 className="w3-round w3-image w3-hover-opacity-off" alt="Production" width="400" />
                         </div>
 
                         {/* Hide this text on small devices */}
-                        <div className="w3-col m8 w3-padding-large">
+                        <div className="w3-col m7 w3-padding-large">
                             <p>
                                 We are The Dutchmen, a recreational cannabis cultivation company, offering a premium quality product and a
                                 pleasant customer experience. With roots in the Netherlands, a pioneering country for legal cannabis use, we are well-versed in this industry.
@@ -250,8 +229,7 @@ export default function Home() {
                         </div>
                     </div>           
 
-                    <p></p>
-
+                    {/*
                     <div className="w3-row">
                         <div className="w3-col m8 w3-padding-large">                    
                             <h3>Daniela Stringa</h3>
@@ -276,6 +254,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div> 
+                    */}
                 </section>
 
                 {/* Second Parallax Image with Portfolio Text */}
@@ -363,7 +342,7 @@ export default function Home() {
                             <img src="./images/amsterdam-downtown.jpg" className="w3-image w3-round" style={{width: "100%"}} />
                             <p>
                                 Curious about what we are doing behind the scenes?
-                                Fill out the contact form for more information, or to sign up for our newsletter.
+                                Fill out the <em>contact form</em> for more information, or to sign up for our newsletter.
                             </p>
                         </div>
                         <div className="w3-col m8 w3-panel">
@@ -402,9 +381,11 @@ export default function Home() {
                     </a>
                     
                     <div className="w3-xlarge footer-links-section font-awesome-link">
+                        {/*
                         <a className="font-awesome-link" href="https://www.facebook.com/daniela.stringa.1">
                             <i className="fa fa-facebook-official w3-hover-opacity"></i>
                         </a>
+                        */}
                         <a className="font-awesome-link" href="https://www.instagram.com/thedutchmen.us/">
                             <i className="fa fa-instagram w3-hover-opacity"></i>
                         </a>
