@@ -76,9 +76,19 @@ export default function Home() {
     const {inputs, handleInputChange, handleSubmit} = useSignUpForm(signup);
 
     
-    function signup() { 
-        window.open(`mailto:wendiacanovaldez@gmail.com?subject=TheDutchment.us%20Message&body=${inputs.message},%20Email:%20${inputs.email}`)
-      }
+    function signup() {
+        var recipient = `wendiacanovaldez@gmail.com`
+        var subject = encodeURIComponent(
+            `TheDutchmen.us message from ${inputs.name}
+        `)
+        var msgBody = encodeURIComponent(
+            `Sender's name: ${inputs.name}\n` +
+            `Sender's email: ${inputs.email}\n` +
+            `\n` +
+            `Message: \n${inputs.message}`
+        )
+        window.open(`mailto:${recipient}?subject=${subject}&body=${msgBody}`)
+    }
 
     const handleClose = (newValue) => {
         setOpen(false);
