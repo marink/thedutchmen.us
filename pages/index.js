@@ -183,7 +183,7 @@ export default function Home() {
                 <section className="w3-content w3-container w3-padding-64" id="about">
                     <h3 className="w3-center">ABOUT US</h3>
                     <h2 className="w3-center" style={{whiteSpace: "nowrap"}}>
-                         <em>Welcome to <wbr/><a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em>
+                         <em>Welcome to <br className="w3-hide-medium w3-hide-large"/><a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em>
                     </h2>
                     <div className="w3-row">
                         <div className="w3-col m5 w3-center w3-padding-large">
