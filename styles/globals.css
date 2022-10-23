@@ -91,3 +91,9 @@ a {
 .font-awesome-link::before {
     padding-left: 32px;
 }
+
+@media only screen and (max-device-width: 1366px) {
+    .bgimg {
+      background-attachment: scroll;
+    }
+  }

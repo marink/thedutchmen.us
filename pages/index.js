@@ -2,76 +2,16 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import Dialog from '@mui/material/Dialog';
-
-
-function ConfirmationDialogRaw(props) {
-    const { onClose, value: valueProp, open, ...other } = props;
-    const [value, setValue] = React.useState(valueProp);
-    const radioGroupRef = React.useRef(null);
-
-    React.useEffect(() => {
-        if (!open) {
-            setValue(valueProp);
-        }
-    }, [valueProp, open]);
-
-    const handleEntering = () => {
-        if (radioGroupRef.current != null) {    
-            radioGroupRef.current.focus();
-        }
-    };
-
-    const handleCancel = () => {
-        onClose();
-    };
-
-    const handleOk = () => {
-        onClose(value);
-    };
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
-
-    return (
-        <Dialog
-            sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }}
-            maxWidth="xs"
-            TransitionProps={{ onEntering: handleEntering }}
-            open={open}
-            {...other}
-        >
-            <DialogTitle>Confirm Your Age</DialogTitle>
-            <DialogContent dividers>
-                <h3 style={{ color: "#ea6f1f" }}>You must be 21 years of age or older to view this site.</h3>
-            </DialogContent>
-            <DialogActions >
-                <Button variant="contained" autoFocus onClick={handleOk}>I AM 21 OR OLDER</Button>
-                <Button variant="outlined" onClick={handleCancel}>
-                    Exit
-                </Button>
-            </DialogActions>
-        </Dialog>
-    );
-}
-
-ConfirmationDialogRaw.propTypes = {
-    onClose: PropTypes.func.isRequired,
-    open: PropTypes.bool.isRequired,
-    value: PropTypes.string.isRequired,
-};
+import ConfirmationDialog from "@components/ConfirmationDialog";
+import Footer from "@components/Footer";
+import SectionDivider from "@components/SectionDivider";
+import Header from "@components/Header";
 
 
 export default function Home() {
 
     const [open, setOpen] = React.useState(true);
-    const [value, setValue] = React.useState('Dione');
+    const [value, setValue] = React.useState("Yes! I'm 21 or older");
 
     const {inputs, handleInputChange, handleSubmit} = useSignUpForm(signup);
 
@@ -126,15 +66,6 @@ export default function Home() {
     }, [scrollTop]);
     // Used to toggle the menu on small screens when clicking on the menu button
   
-    function toggleFunction() {
-        var x = document.getElementById("navDemo");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }    
-
     return (
         <React.Fragment>
             <Head>
@@ -144,29 +75,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/** Navbar (sit on top) */}
-            <header className="w3-top">
-                <nav className="w3-bar" id="myNavbar">
-                    <a className="w3-bar-item link-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="#" onClick={toggleFunction} title="Toggle Navigation Menu">
-                        <i className="fa fa-bars"></i>
-                    </a>
-                    <a href="#home" className="w3-bar-item link-button">HOME</a>
-                    <a href="#about" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-user"></i> ABOUT</a>
-                    <a href="#products" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-shopping-cart"></i> PRODUCTS</a>
-                    <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small w3-hide-large"><i className="fa fa-globe"></i> MISSION</a>
-                    <a href="#mission-statement" className="w3-bar-item link-button w3-hide-small w3-hide-medium"><i className="fa fa-globe"></i> MISSION STATEMENT</a>
-                    <a href="#contact" className="w3-bar-item link-button w3-hide-small"><i className="fa fa-envelope"></i> CONTACT</a>
-                    <a href="#" className="w3-bar-item link-button w3-hide-small w3-right w3-hover-red"></a>
-                </nav>
-
-                {/* Navbar on small screens */}
-                <nav id="navDemo" className="w3-bar-block bg-white w3-hide w3-hide-large w3-hide-medium">
-                    <a href="#about" className="w3-bar-item link-button" onClick={toggleFunction}>ABOUT</a>
-                    <a href="#products" className="w3-bar-item link-button" onClick={toggleFunction}>PRODUCTS</a>
-                    <a href="#mission-statement" className="w3-bar-item link-button" onClick={toggleFunction}>MISSION STATEMENT</a>
-                    <a href="#contact" className="w3-bar-item link-button" onClick={toggleFunction}>CONTACT</a>
-                </nav>
-            </header>
+            <Header></Header>
 
             <main className={styles.container}>
 
@@ -181,7 +90,6 @@ export default function Home() {
 
                 {/* Container (About Section) */}
                 <section className="w3-content w3-container w3-padding-64" id="about">
-                    <h3 className="w3-center">ABOUT US</h3>
                     <h2 className="w3-center" style={{whiteSpace: "nowrap"}}>
                          <em>Welcome to <br className="w3-hide-medium w3-hide-large"/><a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em>
                     </h2>
@@ -202,7 +110,7 @@ export default function Home() {
                         </div>
                     </div>                    
 
-                    <p className="w3-row hr-divider"><hr /></p>
+                    <SectionDivider></SectionDivider>
                     
                     <h2 className="w3-center">Our values</h2>
                     <div className="w3-row">
@@ -211,17 +119,17 @@ export default function Home() {
                         to premium quality cannabis and the best knowledge. Plus, the opportunity to join and profit from the industry.
                     </div>
 
-                    <p className="w3-row hr-divider"><hr /></p>
-
+                    <SectionDivider></SectionDivider>
+                    
                     <h2 className="w3-center">Who are we?</h2>
                     <div className="w3-row">
-                        <div className="w3-third m4 w3-margin-bottom">
+                        <div className="w3-third m5 w3-margin-bottom">
                             <div className="w3-card-4">
                                 <img src="/images/Wendi.jpg" alt="Wendi Cano" style={{width: "100%"}} />
                             </div>
                         </div>       
                         {/* Hide this text on small devices */}
-                        <div className="w3-col m8 w3-padding-large">                    
+                        <div className="w3-col m7 w3-padding-large">                    
                             <h3>Jose A. Cano Valdez</h3>
                             <p className="w3-opacity">CEO &amp; Founder</p>
                             <p>
@@ -271,32 +179,31 @@ export default function Home() {
                 </section>
 
                 {/* Second Parallax Image with Portfolio Text */}
-                <div className="bgimg-2 w3-display-container w3-opacity-min">
+                <div className="bgimg-2 w3-display-container w3-opacity-min" id="products">
                     <div className="w3-display-middle">
                         <span className="w3-xxlarge w3-text-white w3-wide">OUR PRODUCTS</span>
                     </div>
                 </div>
 
-                <section className="w3-content w3-container w3-padding-64" id="products">
-
-                    <h2 className="w3-center">Our Products</h2>
+                <section className="w3-content w3-container w3-padding-64">
                     <div className="w3-row">
-                        Our products are currently in development.
-                        We have access to the well known strains.
                     </div>
 
-
-                    <p className="w3-row hr-divider"><hr /></p>
+                    <SectionDivider></SectionDivider>
             
                     <div className="w3-row">
-                        <div className="w3-col m3 w3-center w3-padding-large">
+                        <div className="w3-col m4 w3-center w3-padding-large">
                             <img src="images/products.jpg" 
                                 className="w3-round w3-image w3-hover-opacity-off" alt="Production" width="320" />
                         </div>       
                         
-                        <div className="w3-col m9 w3-padding-large">                    
+                        <div className="w3-col m8 w3-padding-large">                    
                             
-                            <h2>Exclusive strains</h2>                                            
+                            <h2>Exclusive strains</h2>
+                            <p>
+                                Our products are currently in development.
+                                We have access to well known strains.
+                            </p>                                            
                             <p>
                                 Sign up for our newsletter to keep updated on the launch 
                                 and availability of our products.
@@ -304,8 +211,7 @@ export default function Home() {
                         </div>
                     </div>           
 
-
-                    <p className="w3-row hr-divider"><hr /></p>
+                    <SectionDivider></SectionDivider>
             
                     <div className="w3-row">
                         <div className="w3-col m7 w3-padding-large">
@@ -331,31 +237,29 @@ export default function Home() {
                    
                 
                 {/* Third Parallax Image with Portfolio Text */}
-                <div className="bgimg-3 w3-display-container w3-opacity-min">
+                <div className="bgimg-3 w3-display-container w3-opacity-min" id="mission-statement">
                     <div className="w3-display-middle">
                     <span className="w3-xxlarge w3-text-black w3-wide">MISSION STATEMENT</span>
                     </div>
                 </div>
 
-                <section className="w3-content w3-container w3-padding-64" id="mission-statement">
-                    <h1 className="w3-center">Our Mission Statement</h1>
+                <section className="w3-content w3-container w3-padding-64">
                     <p className="w3-row">
                         The Dutchmen LLC. will work tirelessly to deliver a premium quality product and an exceptional customer experience. Raising cannabis industry
                         standards our uncompromising work ethic, morals and principles are the foundation in which we commit to better serve our community.
                     </p>
                 </section>
 
-
                 <section className="w3-content w3-container w3-padding-64" id="contact">
                     
-                    <h1 className="w3-center">Interested?</h1>
+                    <h2 className="w3-center">Interested?</h2>
 
                     <div className="w3-row w3-padding-32 w3-section">
                         <div className="w3-col m4 w3-container">
                             <img src="./images/amsterdam-downtown.jpg" className="w3-image w3-round" style={{width: "100%"}} />
                             <p>
                                 Curious about what we are doing behind the scenes?
-                                Fill out the <em>contact form</em> for more information, or to sign up for our newsletter.
+                                Fill out the <a href="#contact"><em>contact form</em></a> for more information, or to sign up for our newsletter.
                             </p>
                         </div>
                         <div className="w3-col m8 w3-panel">
@@ -382,46 +286,13 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <p className="w3-row hr-divider"><hr /></p>
                 </section>
-
-                {/* Footer */}
-                <footer className="w3-center w3-black w3-padding-64 w3-hover-opacity-off">
-                    
-                    <a href="#home" className="link-button w3-light-grey">
-                        <i className="fa fa-arrow-up w3-margin-right"></i>
-                        Back to the top
-                    </a>
-                    
-                    <div className="w3-xlarge footer-links-section font-awesome-link">
-                        {/*
-                        <a className="font-awesome-link" href="https://www.facebook.com/daniela.stringa.1">
-                            <i className="fa fa-facebook-official w3-hover-opacity"></i>
-                        </a>
-                        */}
-                        <a className="font-awesome-link" href="https://www.instagram.com/thedutchmen.us/">
-                            <i className="fa fa-instagram w3-hover-opacity"></i> </a>
-                        <a className="font-awesome-link" href="#">
-                            <i className="fa fa-snapchat w3-hover-opacity"> </i> </a>
-                        <a className="font-awesome-link" href="#">
-                            <i className="fa fa-pinterest-p w3-hover-opacity"></i> </a>
-                        <a className="font-awesome-link" href="#">
-                            <i className="fa fa-twitter w3-hover-opacity"></i> </a>
-                        <a className="font-awesome-link" href="https://www.linkedin.com/in/wendi-cano-valdez-b2b6b1240/">
-                            <i className="fa fa-linkedin w3-hover-opacity"></i> </a>
-                    </div>
-
-                    <p>Copyright (c) 2021-2022 by <a href="https://thedutchment.us" title="TheDutchmen LLC." className="w3-hover-text-green">TheDutchmen LLC.</a></p>
-                </footer>
+                
+                <Footer> </Footer>
+               
             </main>
 
-            <ConfirmationDialogRaw
-                id="ringtone-menu"
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                value={value}
-            />
+            <ConfirmationDialog keepMounted open={open} onClose={handleClose} value={value} />
         </React.Fragment>
     )
 }
