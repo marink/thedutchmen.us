@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+
+import { styled, alpha } from '@mui/material/styles';
+
 import * as React from 'react';
 import ConfirmationDialog from "@components/ConfirmationDialog";
 import Footer from "@components/Footer";
@@ -81,22 +84,23 @@ export default function Home() {
 
                 {/* First Parallax Image with Logo Text */}
                 <div className="bgimg-1 w3-display-container w3-opacity-min" id="home">
-                    <div className="w3-display-middle" style={{ whiteSpace: "nowrap", lineHeight: 3 }}>
-                        <span className="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity">
+                    <MainLogo>
+                        <span className="centered w3-xlarge w3-animate-opacity">
                             <img src="logo-gray.png" width="100%"></img>
                         </span>
-                    </div>
+                    </MainLogo>
                 </div>
 
                 {/* Container (About Section) */}
                 <section className="w3-content w3-container w3-padding-64" id="about">
                     <h2 className="w3-center" style={{whiteSpace: "nowrap"}}>
-                         <em>Welcome to <br className="w3-hide-medium w3-hide-large"/><a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em>
+                        <em>Welcome to <br className="w3-hide-medium w3-hide-large"/>
+                        <a style={{ color: "#ea6f1f" }} href="https://thedutchmen.us">The Dutchmen Website!</a></em>
                     </h2>
                     <div className="w3-row">
-                        <div className="w3-col m5 w3-center w3-padding-large">
+                        <div className="w3-col m5 centered w3-padding-large">
                             <img src="images/about-us.jpg" 
-                                className="w3-round w3-image w3-hover-opacity-off" alt="Production" width="400" />
+                                className="w3-round w3-image w3-hover-opacity-off" alt="Production" />
                         </div>
 
                         {/* Hide this text on small devices */}
@@ -112,7 +116,7 @@ export default function Home() {
 
                     <SectionDivider></SectionDivider>
                     
-                    <h2 className="w3-center">Our values</h2>
+                    <h2 className="centered">Our values</h2>
                     <div className="w3-row">
                         As the legalization of the cannabis industry accelerates, we see more and more corporations jumping on the bandwagon.
                         We are everyday people and believe that the everyday person with a love for the cannabis community should have access
@@ -121,7 +125,7 @@ export default function Home() {
 
                     <SectionDivider></SectionDivider>
                     
-                    <h2 className="w3-center">Who are we?</h2>
+                    <h2 className="centered">Who are we?</h2>
                     <div className="w3-row">
                         <div className="w3-third m5 w3-margin-bottom">
                             <div className="w3-card-4">
@@ -181,7 +185,7 @@ export default function Home() {
                 {/* Second Parallax Image with Portfolio Text */}
                 <div className="bgimg-2 w3-display-container w3-opacity-min" id="products">
                     <div className="w3-display-middle">
-                        <span className="w3-xxlarge w3-text-white w3-wide">OUR PRODUCTS</span>
+                        <span className="banner-text w3-text-white">OUR PRODUCTS</span>
                     </div>
                 </div>
 
@@ -192,12 +196,12 @@ export default function Home() {
                     <SectionDivider></SectionDivider>
             
                     <div className="w3-row">
-                        <div className="w3-col m4 w3-center w3-padding-large">
+                        <div className="w3-col m6 centered w3-padding-large">
                             <img src="images/products.jpg" 
-                                className="w3-round w3-image w3-hover-opacity-off" alt="Production" width="320" />
+                                className="w3-round w3-image w3-hover-opacity-off" alt="Production" />
                         </div>       
                         
-                        <div className="w3-col m8 w3-padding-large">                    
+                        <div className="w3-col m6 w3-padding-large">                    
                             
                             <h2>Exclusive strains</h2>
                             <p>
@@ -214,7 +218,7 @@ export default function Home() {
                     <SectionDivider></SectionDivider>
             
                     <div className="w3-row">
-                        <div className="w3-col m7 w3-padding-large">
+                        <div className="w3-col m6 w3-padding-large">
                             <h2>Become an investor</h2>                                            
                             <p>
                                 Looking for an affordable investment opportunity in the cannabis industry?
@@ -228,9 +232,9 @@ export default function Home() {
                             </ul>
                         </div>   
 
-                        <div className="w3-col m5 w3-center w3-padding-large">
+                        <div className="w3-col m6 centered w3-padding-large">
                             <img src="images/investors.jpg" 
-                                className="w3-round w3-image w3-hover-opacity-off" alt="Production" width="450" />
+                                className="w3-round w3-image w3-hover-opacity-off" alt="Production" />
                         </div>  
                     </div>                  
                 </section>
@@ -239,7 +243,7 @@ export default function Home() {
                 {/* Third Parallax Image with Portfolio Text */}
                 <div className="bgimg-3 w3-display-container w3-opacity-min" id="mission-statement">
                     <div className="w3-display-middle">
-                    <span className="w3-xxlarge w3-text-black w3-wide">MISSION STATEMENT</span>
+                    <span className="banner-text w3-text-black">MISSION STATEMENT</span>
                     </div>
                 </div>
 
@@ -252,7 +256,7 @@ export default function Home() {
 
                 <section className="w3-content w3-container w3-padding-64" id="contact">
                     
-                    <h2 className="w3-center">Interested?</h2>
+                    <h2 className="centered">Interested?</h2>
 
                     <div className="w3-row w3-padding-32 w3-section">
                         <div className="w3-col m4 w3-container">
@@ -297,6 +301,18 @@ export default function Home() {
     )
 }
 
+const MainLogo = styled("div")(({ theme }) => ({
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    [theme.breakpoints.down("sm")]: {
+        left: "10%",
+        transform: "translate(-5%, -50%)"
+    },
+    whiteSpace: "nowrap", 
+    lineHeight: 3
+}));
 
 const useSignUpForm = (callback) => {
     const [inputs, setInputs] = React.useState({});
