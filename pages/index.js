@@ -9,6 +9,7 @@ import ConfirmationDialog from "@components/ConfirmationDialog";
 import Footer from "@components/Footer";
 import SectionDivider from "@components/SectionDivider";
 import Header from "@components/Header";
+import ParallaxBackground from '@components/ParallaxBackground';
 
 
 export default function Home() {
@@ -82,14 +83,13 @@ export default function Home() {
 
             <main className={styles.container}>
 
-                {/* First Parallax Image with Logo Text */}
-                <div className="bgimg-1 w3-display-container w3-opacity-min" id="home">
+                <ParallaxBackground id="home" imgPath="/images/background1.jpg" height="100%">
                     <MainLogo>
                         <span className="centered w3-xlarge w3-animate-opacity">
                             <img src="logo-gray.png" width="100%"></img>
                         </span>
                     </MainLogo>
-                </div>
+                </ParallaxBackground>
 
                 {/* Container (About Section) */}
                 <section className="w3-content w3-container w3-padding-64" id="about">
@@ -183,11 +183,11 @@ export default function Home() {
                 </section>
 
                 {/* Second Parallax Image with Portfolio Text */}
-                <div className="bgimg-2 w3-display-container w3-opacity-min" id="products">
+                <ParallaxBackground id="products" imgPath="/images/background2.jpg">
                     <div className="w3-display-middle">
                         <span className="banner-text w3-text-white">OUR PRODUCTS</span>
                     </div>
-                </div>
+                </ParallaxBackground>
 
                 <section className="w3-content w3-container w3-padding-64">
                     <div className="w3-row">
@@ -238,14 +238,12 @@ export default function Home() {
                         </div>  
                     </div>                  
                 </section>
-                   
-                
-                {/* Third Parallax Image with Portfolio Text */}
-                <div className="bgimg-3 w3-display-container w3-opacity-min" id="mission-statement">
+                           
+                <ParallaxBackground imgPath="/images/background3.jpg" id="mission-statement">
                     <div className="w3-display-middle">
-                    <span className="banner-text w3-text-black">MISSION STATEMENT</span>
+                        <span className="banner-text w3-text-black">MISSION STATEMENT</span>
                     </div>
-                </div>
+                </ParallaxBackground>
 
                 <section className="w3-content w3-container w3-padding-64">
                     <p className="w3-row">
