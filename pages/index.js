@@ -21,7 +21,7 @@ export default function Home() {
 
     
     function signup() {
-        var recipient = `wendiacanovaldez@gmail.com`
+        var recipient = `wendicano@thedutchmen.us`
         var subject = encodeURIComponent(
             `TheDutchmen.us message from ${inputs.name}
         `)
